@@ -50,5 +50,13 @@ namespace oauth {
             return this->callbackUrl;
         }
 
+        void OAuthStrategy::setScope(const QString& scope) {
+            this->scope = scope;
+        }
+
+        QString OAuthStrategy::getScope() const {
+            return this->scope;
+        }
+
     } /* namespace strategy */
 } /* namespace oauth */

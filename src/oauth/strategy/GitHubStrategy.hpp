@@ -1,5 +1,6 @@
 /*
- * This strategy knows how to authenticate with GitHub.
+ * For more information on the GitHub OAuth process:
+ *      https://developer.github.com/v3/oauth/
  *
  * Created on: 13-aug.-2014
  * Author: Sam Verschueren		<sam.verschueren@gmail.com>

@@ -8,20 +8,26 @@
 #include "LoginController.hpp"
 
 LoginController::LoginController(QObject *parent) : QObject(parent) {
-    OAuthStrategy *strategy = new GitHubStrategy(this);
-    strategy->setClientKey("client_key");
-    strategy->setClientSecret("client_secret");
+    OAuthStrategy *github = new GitHubStrategy(this);
+    github->setClientKey("client_key");
+    github->setClientSecret("client_secret");
+    github->setScope("user,repo");                      // comma separated list
+
+    OAuthStrategy *google = new GoogleStrategy(this);
+    google->setClientKey("client_key");
+    google->setClientSecret("client_secret");
+    google->setScope("email profile");                  // space separated list
 
     this->oauth = new OAuth(this);
-    this->oauth->setStrategy(strategy);
+    this->oauth->setStrategy(google);
 
-    connect(this->oauth, SIGNAL(authorized()), this, SLOT(authorized()));
+    connect(this->oauth, SIGNAL(authorized(QVariantMap)), this, SLOT(authorized(QVariantMap)));
 }
 
 void LoginController::authorize(WebView *webview) {
     this->oauth->authorize(webview);
 }
 
-void LoginController::authorized() {
-    qDebug() << "The access token is: " << this->oauth->getAccessToken();
+void LoginController::authorized(const QVariantMap& data) {
+    qDebug() << data;
 }

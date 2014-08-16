@@ -8,12 +8,14 @@ device {
                  $$quote($$BASEDIR/src/main.cpp) \
                  $$quote($$BASEDIR/src/oauth/OAuth.cpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.cpp) \
+                 $$quote($$BASEDIR/src/oauth/strategy/GoogleStrategy.cpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/OAuthStrategy.cpp)
 
         HEADERS +=  $$quote($$BASEDIR/src/applicationui.hpp) \
                  $$quote($$BASEDIR/src/controllers/LoginController.hpp) \
                  $$quote($$BASEDIR/src/oauth/OAuth.hpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.hpp) \
+                 $$quote($$BASEDIR/src/oauth/strategy/GoogleStrategy.hpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/OAuthStrategy.hpp)
     }
 
@@ -23,12 +25,14 @@ device {
                  $$quote($$BASEDIR/src/main.cpp) \
                  $$quote($$BASEDIR/src/oauth/OAuth.cpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.cpp) \
+                 $$quote($$BASEDIR/src/oauth/strategy/GoogleStrategy.cpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/OAuthStrategy.cpp)
 
         HEADERS +=  $$quote($$BASEDIR/src/applicationui.hpp) \
                  $$quote($$BASEDIR/src/controllers/LoginController.hpp) \
                  $$quote($$BASEDIR/src/oauth/OAuth.hpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.hpp) \
+                 $$quote($$BASEDIR/src/oauth/strategy/GoogleStrategy.hpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/OAuthStrategy.hpp)
     }
 }
@@ -40,12 +44,14 @@ simulator {
                  $$quote($$BASEDIR/src/main.cpp) \
                  $$quote($$BASEDIR/src/oauth/OAuth.cpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.cpp) \
+                 $$quote($$BASEDIR/src/oauth/strategy/GoogleStrategy.cpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/OAuthStrategy.cpp)
 
         HEADERS +=  $$quote($$BASEDIR/src/applicationui.hpp) \
                  $$quote($$BASEDIR/src/controllers/LoginController.hpp) \
                  $$quote($$BASEDIR/src/oauth/OAuth.hpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.hpp) \
+                 $$quote($$BASEDIR/src/oauth/strategy/GoogleStrategy.hpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/OAuthStrategy.hpp)
     }
 }

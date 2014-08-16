@@ -13,25 +13,21 @@ namespace oauth {
 
     }
 
-    QString OAuth::getAccessToken() const {
-        return this->accessToken;
-    }
-
     void OAuth::setStrategy(OAuthStrategy *strategy) {
+        qDebug() << strategy->metaObject()->className() << "injected";
+
         this->strategy = strategy;
     }
 
     void OAuth::authorize(WebView *webview) {
         connect(webview, SIGNAL(navigationRequested(bb::cascades::WebNavigationRequest*)), strategy, SLOT(handleRequest(bb::cascades::WebNavigationRequest*)));
-        connect(strategy, SIGNAL(accessTokenRetrieved(QString)), this, SLOT(accessTokenRetrieved(QString)));
+        connect(strategy, SIGNAL(accessTokenRetrieved(QVariantMap)), this, SLOT(accessTokenRetrieved(QVariantMap)));
 
         webview->setUrl(this->strategy->getAuthorizationUrl());
     }
 
-    void OAuth::accessTokenRetrieved(const QString& token) {
-        this->accessToken = token;
-
-        emit authorized();
+    void OAuth::accessTokenRetrieved(const QVariantMap& result) {
+        emit authorized(result);
     }
 
 } /* namespace oauth */

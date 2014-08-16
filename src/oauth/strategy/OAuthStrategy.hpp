@@ -25,6 +25,7 @@ namespace oauth {
                 QString clientKey;
                 QString clientSecret;
                 QUrl callbackUrl;
+                QString scope;
 
             public:
                 OAuthStrategy(QObject *parent=0);
@@ -32,6 +33,7 @@ namespace oauth {
                 void setClientKey(const QString& clientKey);
                 void setClientSecret(const QString& clientSecret);
                 void setCallbackUrl(const QUrl& callbackUrl);
+                void setScope(const QString& scope);
 
                 virtual QUrl getAuthorizationUrl() const = 0;
 
@@ -39,12 +41,13 @@ namespace oauth {
                 QString getClientKey() const;
                 QString getClientSecret() const;
                 QUrl getCallbackUrl() const;
+                QString getScope() const;
 
             private slots:
                 virtual void handleRequest(bb::cascades::WebNavigationRequest *request)=0;
 
             signals:
-                void accessTokenRetrieved(const QString& accessToken);
+                void accessTokenRetrieved(const QVariantMap& result);
         };
 
     } /* namespace strategy */

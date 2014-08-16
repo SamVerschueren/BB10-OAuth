@@ -14,6 +14,7 @@
 #include "OAuth.hpp"
 #include "OAuthStrategy.hpp"
 #include "GitHubStrategy.hpp"
+#include "GoogleStrategy.hpp"
 
 using namespace bb::cascades;
 using namespace oauth;
@@ -32,7 +33,7 @@ class LoginController : public QObject
         Q_INVOKABLE void authorize(WebView *webview);
 
     private slots:
-        void authorized();
+        void authorized(const QVariantMap& data);
 };
 
 #endif /* LOGINCONTROLLER_HPP_ */

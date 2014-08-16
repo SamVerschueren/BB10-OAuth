@@ -11,8 +11,6 @@ namespace oauth {
     namespace strategy {
 
         GitHubStrategy::GitHubStrategy(QObject *parent) : OAuthStrategy(parent) {
-            qDebug() << "GitHubStrategy injected";
-
             this->networkManager = new QNetworkAccessManager(this);
         }
 
@@ -20,6 +18,10 @@ namespace oauth {
             QString url("https://github.com/login/oauth/authorize");
             url.append("?client_id=").append(OAuthStrategy::getClientKey());
             url.append("&redirect_uri=").append(OAuthStrategy::getCallbackUrl().toString());
+
+            if(!OAuthStrategy::getScope().isEmpty()) {
+                url.append("&scope=").append(OAuthStrategy::getScope());
+            }
 
             return QUrl(url);
         }
@@ -64,9 +66,7 @@ namespace oauth {
                 // TODO handle errors
                 QVariantMap map = jda.loadFromBuffer(reply->readAll()).toMap();
 
-                QString token = map.value("access_token").toString();
-
-                emit accessTokenRetrieved(token);
+                emit accessTokenRetrieved(map);
             }
         }
 

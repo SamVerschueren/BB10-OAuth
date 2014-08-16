@@ -24,21 +24,18 @@ namespace oauth {
 
         private:
             OAuthStrategy *strategy;
-            QString accessToken;
 
         public:
             OAuth(QObject *parent=0);
-
-            QString getAccessToken() const;
 
             void setStrategy(OAuthStrategy *strategy);
             void authorize(WebView *webview);
 
         private slots:
-            void accessTokenRetrieved(const QString& token);
+            void accessTokenRetrieved(const QVariantMap& result);
 
         signals:
-            void authorized();
+            void authorized(const QVariantMap& result);
     };
 
 } /* namespace oauth */
