@@ -4,12 +4,14 @@ BASEDIR =  $$quote($$_PRO_FILE_PWD_)
 device {
     CONFIG(debug, debug|release) {
         SOURCES +=  $$quote($$BASEDIR/src/applicationui.cpp) \
+                 $$quote($$BASEDIR/src/controllers/LoginController.cpp) \
                  $$quote($$BASEDIR/src/main.cpp) \
                  $$quote($$BASEDIR/src/oauth/OAuth.cpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.cpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/OAuthStrategy.cpp)
 
         HEADERS +=  $$quote($$BASEDIR/src/applicationui.hpp) \
+                 $$quote($$BASEDIR/src/controllers/LoginController.hpp) \
                  $$quote($$BASEDIR/src/oauth/OAuth.hpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.hpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/OAuthStrategy.hpp)
@@ -17,12 +19,14 @@ device {
 
     CONFIG(release, debug|release) {
         SOURCES +=  $$quote($$BASEDIR/src/applicationui.cpp) \
+                 $$quote($$BASEDIR/src/controllers/LoginController.cpp) \
                  $$quote($$BASEDIR/src/main.cpp) \
                  $$quote($$BASEDIR/src/oauth/OAuth.cpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.cpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/OAuthStrategy.cpp)
 
         HEADERS +=  $$quote($$BASEDIR/src/applicationui.hpp) \
+                 $$quote($$BASEDIR/src/controllers/LoginController.hpp) \
                  $$quote($$BASEDIR/src/oauth/OAuth.hpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.hpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/OAuthStrategy.hpp)
@@ -32,19 +36,22 @@ device {
 simulator {
     CONFIG(debug, debug|release) {
         SOURCES +=  $$quote($$BASEDIR/src/applicationui.cpp) \
+                 $$quote($$BASEDIR/src/controllers/LoginController.cpp) \
                  $$quote($$BASEDIR/src/main.cpp) \
                  $$quote($$BASEDIR/src/oauth/OAuth.cpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.cpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/OAuthStrategy.cpp)
 
         HEADERS +=  $$quote($$BASEDIR/src/applicationui.hpp) \
+                 $$quote($$BASEDIR/src/controllers/LoginController.hpp) \
                  $$quote($$BASEDIR/src/oauth/OAuth.hpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.hpp) \
                  $$quote($$BASEDIR/src/oauth/strategy/OAuthStrategy.hpp)
     }
 }
 
-INCLUDEPATH +=  $$quote($$BASEDIR/src/oauth) \
+INCLUDEPATH +=  $$quote($$BASEDIR/src/controllers) \
+         $$quote($$BASEDIR/src/oauth) \
          $$quote($$BASEDIR/src) \
          $$quote($$BASEDIR/src/oauth/strategy)
 
@@ -58,6 +65,11 @@ lupdate_inclusion {
              $$quote($$BASEDIR/../src/*.cc) \
              $$quote($$BASEDIR/../src/*.cpp) \
              $$quote($$BASEDIR/../src/*.cxx) \
+             $$quote($$BASEDIR/../src/controllers/*.c) \
+             $$quote($$BASEDIR/../src/controllers/*.c++) \
+             $$quote($$BASEDIR/../src/controllers/*.cc) \
+             $$quote($$BASEDIR/../src/controllers/*.cpp) \
+             $$quote($$BASEDIR/../src/controllers/*.cxx) \
              $$quote($$BASEDIR/../src/oauth/*.c) \
              $$quote($$BASEDIR/../src/oauth/*.c++) \
              $$quote($$BASEDIR/../src/oauth/*.cc) \

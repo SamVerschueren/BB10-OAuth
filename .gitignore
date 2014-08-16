@@ -1,0 +1,11 @@
+arm/o.le-v7-g/BB10_OAuth
+arm/o.le-v7-g/.moc/*
+arm/o.le-v7/.moc/*
+.DS_Store
+*.o
+*.0
+*.so
+*.1
+*.bar
+*.sym
+.preview*
