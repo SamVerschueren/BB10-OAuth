@@ -24,7 +24,7 @@ namespace oauth {
             private:
                 QString clientKey;
                 QString clientSecret;
-                QUrl callbackUrl;
+                QUrl redirectUrl;
                 QString scope;
 
             public:
@@ -32,7 +32,7 @@ namespace oauth {
 
                 void setClientKey(const QString& clientKey);
                 void setClientSecret(const QString& clientSecret);
-                void setCallbackUrl(const QUrl& callbackUrl);
+                void setRedirectUrl(const QUrl& redirectUrl);
                 void setScope(const QString& scope);
 
                 virtual QUrl getAuthorizationUrl() const = 0;
@@ -40,7 +40,7 @@ namespace oauth {
             protected:
                 QString getClientKey() const;
                 QString getClientSecret() const;
-                QUrl getCallbackUrl() const;
+                QUrl getRedirectUrl() const;
                 QString getScope() const;
 
             private slots:

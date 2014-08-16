@@ -17,7 +17,7 @@ namespace oauth {
         QUrl GitHubStrategy::getAuthorizationUrl() const {
             QString url("https://github.com/login/oauth/authorize");
             url.append("?client_id=").append(OAuthStrategy::getClientKey());
-            url.append("&redirect_uri=").append(OAuthStrategy::getCallbackUrl().toString());
+            url.append("&redirect_uri=").append(OAuthStrategy::getRedirectUrl().toString());
 
             if(!OAuthStrategy::getScope().isEmpty()) {
                 url.append("&scope=").append(OAuthStrategy::getScope());
@@ -29,7 +29,7 @@ namespace oauth {
         void GitHubStrategy::handleRequest(WebNavigationRequest *request) {
             QUrl url = request->url();
 
-            if(url.host() == OAuthStrategy::getCallbackUrl().host() && url.hasQueryItem("code")) {
+            if(url.host() == OAuthStrategy::getRedirectUrl().host() && url.hasQueryItem("code")) {
                 QByteArray data;
 
                 // Retrieve the code out of the querystring
@@ -46,7 +46,7 @@ namespace oauth {
                 map.insert("client_id", OAuthStrategy::getClientKey());
                 map.insert("client_secret", OAuthStrategy::getClientSecret());
                 map.insert("code", code);
-                map.insert("redirect_uri", OAuthStrategy::getCallbackUrl().toString());
+                map.insert("redirect_uri", OAuthStrategy::getRedirectUrl().toString());
 
                 // Convert the body to json
                 jda.saveToBuffer(map, &data);

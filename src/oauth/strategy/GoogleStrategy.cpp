@@ -18,7 +18,7 @@ namespace oauth {
             QString url("https://accounts.google.com/o/oauth2/auth");
             url.append("?response_type=code");
             url.append("&client_id=").append(OAuthStrategy::getClientKey());
-            url.append("&redirect_uri=").append(OAuthStrategy::getCallbackUrl().toString());
+            url.append("&redirect_uri=").append(OAuthStrategy::getRedirectUrl().toString());
             url.append("&scope=").append(OAuthStrategy::getScope());
 
             return QUrl(url);
@@ -27,7 +27,7 @@ namespace oauth {
         void GoogleStrategy::handleRequest(WebNavigationRequest *request) {
             QUrl url = request->url();
 
-            if(url.host() == OAuthStrategy::getCallbackUrl().host() && url.hasQueryItem("code")) {
+            if(url.host() == OAuthStrategy::getRedirectUrl().host() && url.hasQueryItem("code")) {
                 // Retrieve the code out of the querystring
                 QString code = url.queryItemValue("code");
 
@@ -41,7 +41,7 @@ namespace oauth {
                 data.append("client_id=").append(OAuthStrategy::getClientKey());
                 data.append("&client_secret=").append(OAuthStrategy::getClientSecret());
                 data.append("&code=").append(code);
-                data.append("&redirect_uri=").append(OAuthStrategy::getCallbackUrl().toString());
+                data.append("&redirect_uri=").append(OAuthStrategy::getRedirectUrl().toString());
                 data.append("&grant_type=authorization_code");
 
                 connect(this->networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(onAccessTokenRetrieved(QNetworkReply*)));

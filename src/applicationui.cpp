@@ -27,7 +27,7 @@ using namespace bb::cascades;
 
 ApplicationUI::ApplicationUI(bb::cascades::Application *app) : QObject(app) {
     // Register typedefs so they can be used by QMetaProperty
-    qRegisterMetaType<QObject*>("WebView*");
+    //qRegisterMetaType<QObject*>("WebView*");
 
     // Create the controller
     LoginController *loginController = new LoginController(this);

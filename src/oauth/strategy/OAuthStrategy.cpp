@@ -11,7 +11,7 @@ namespace oauth {
     namespace strategy {
 
         OAuthStrategy::OAuthStrategy(QObject *parent) : QObject(parent) {
-            this->setCallbackUrl(QUrl("http://localhost"));
+            this->setRedirectUrl(QUrl("http://localhost"));
         }
 
         void OAuthStrategy::setClientKey(const QString& clientKey) {
@@ -42,12 +42,12 @@ namespace oauth {
             return this->clientSecret;
         }
 
-        void OAuthStrategy::setCallbackUrl(const QUrl& callbackUrl) {
-            this->callbackUrl = callbackUrl;
+        void OAuthStrategy::setRedirectUrl(const QUrl& redirectUrl) {
+            this->redirectUrl = redirectUrl;
         }
 
-        QUrl OAuthStrategy::getCallbackUrl() const {
-            return this->callbackUrl;
+        QUrl OAuthStrategy::getRedirectUrl() const {
+            return this->redirectUrl;
         }
 
         void OAuthStrategy::setScope(const QString& scope) {
