@@ -15,13 +15,13 @@ namespace oauth {
         }
 
         QUrl GoogleStrategy::getAuthorizationUrl() const {
-            QString url("https://accounts.google.com/o/oauth2/auth");
-            url.append("?response_type=code");
-            url.append("&client_id=").append(OAuthStrategy::getClientKey());
-            url.append("&redirect_uri=").append(OAuthStrategy::getRedirectUrl().toString());
-            url.append("&scope=").append(OAuthStrategy::getScope());
+            QUrl url("https://accounts.google.com/o/oauth2/auth");
+            url.addQueryItem("response_type", "code");
+            url.addQueryItem("client_id", OAuthStrategy::getClientKey());
+            url.addQueryItem("redirect_uri", OAuthStrategy::getRedirectUrl().toString());
+            url.addQueryItem("scope", OAuthStrategy::getScope());
 
-            return QUrl(url);
+            return url;
         }
 
         void GoogleStrategy::handleRequest(WebNavigationRequest *request) {

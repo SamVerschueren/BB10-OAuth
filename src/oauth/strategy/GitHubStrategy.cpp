@@ -15,15 +15,15 @@ namespace oauth {
         }
 
         QUrl GitHubStrategy::getAuthorizationUrl() const {
-            QString url("https://github.com/login/oauth/authorize");
-            url.append("?client_id=").append(OAuthStrategy::getClientKey());
-            url.append("&redirect_uri=").append(OAuthStrategy::getRedirectUrl().toString());
+            QUrl url("https://github.com/login/oauth/authorize");
+            url.addQueryItem("client_id", OAuthStrategy::getClientKey());
+            url.addQueryItem("redirect_uri", OAuthStrategy::getRedirectUrl().toString());
 
             if(!OAuthStrategy::getScope().isEmpty()) {
-                url.append("&scope=").append(OAuthStrategy::getScope());
+                url.addQueryItem("scope", OAuthStrategy::getScope());
             }
 
-            return QUrl(url);
+            return url;
         }
 
         void GitHubStrategy::handleRequest(WebNavigationRequest *request) {

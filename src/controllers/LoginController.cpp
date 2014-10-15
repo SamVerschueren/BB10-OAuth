@@ -18,6 +18,11 @@ LoginController::LoginController(QObject *parent) : QObject(parent) {
     google->setClientSecret("client_secret");
     google->setScope("email profile");                  // space separated list
 
+    OAuthStrategy *linkedin = new LinkedInStrategy(this);
+    linkedin->setClientKey("client_key");
+    linkedin->setClientSecret("client_secret");
+    linkedin->setScope("r_basicprofile rw_groups");     // space separated list
+
     this->oauth = new OAuth(this);
     this->oauth->setStrategy(google);
 

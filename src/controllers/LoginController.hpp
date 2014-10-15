@@ -15,6 +15,7 @@
 #include "OAuthStrategy.hpp"
 #include "GitHubStrategy.hpp"
 #include "GoogleStrategy.hpp"
+#include "LinkedInStrategy.hpp"
 
 using namespace bb::cascades;
 using namespace oauth;

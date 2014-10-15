@@ -9,6 +9,7 @@ This framework uses strategies that are little modules that knows how to authent
 The strategies implemented are:
 * Google
 * GitHub
+* LinkedIn
 
 ## Use a strategy
 

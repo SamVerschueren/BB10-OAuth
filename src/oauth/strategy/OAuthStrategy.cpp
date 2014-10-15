@@ -5,6 +5,8 @@
  * Author: Sam Verschueren		<sam.verschueren@gmail.com>
  */
 
+#include <QUuid>
+
 #include "OAuthStrategy.hpp"
 
 namespace oauth {
@@ -12,6 +14,9 @@ namespace oauth {
 
         OAuthStrategy::OAuthStrategy(QObject *parent) : QObject(parent) {
             this->setRedirectUrl(QUrl("http://localhost"));
+
+            // Generate a unique state that can be used to prevent CSRF
+            this->state = QUuid::createUuid().toString().remove(QRegExp("\\W"));
         }
 
         void OAuthStrategy::setClientKey(const QString& clientKey) {
@@ -56,6 +61,10 @@ namespace oauth {
 
         QString OAuthStrategy::getScope() const {
             return this->scope;
+        }
+
+        QString OAuthStrategy::getState() const {
+            return this->state;
         }
 
     } /* namespace strategy */
