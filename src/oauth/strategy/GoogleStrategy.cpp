@@ -20,6 +20,7 @@ namespace oauth {
             url.addQueryItem("client_id", OAuthStrategy::getClientKey());
             url.addQueryItem("redirect_uri", OAuthStrategy::getRedirectUrl().toString());
             url.addQueryItem("scope", OAuthStrategy::getScope());
+            url.addQueryItem("state", OAuthStrategy::getState());
 
             return url;
         }
@@ -27,7 +28,7 @@ namespace oauth {
         void GoogleStrategy::handleRequest(WebNavigationRequest *request) {
             QUrl url = request->url();
 
-            if(url.host() == OAuthStrategy::getRedirectUrl().host() && url.hasQueryItem("code")) {
+            if(url.host() == OAuthStrategy::getRedirectUrl().host() && url.hasQueryItem("code") && url.queryItemValue("state") == OAuthStrategy::getState()) {
                 // Retrieve the code out of the querystring
                 QString code = url.queryItemValue("code");
 

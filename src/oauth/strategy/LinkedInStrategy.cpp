@@ -1,6 +1,5 @@
 /*
- * For more information on the GitHub OAuth process:
- *      https://developer.linkedin.com/documents/authentication
+ * LinkedInStrategy.cpp
  *
  * Created on: 15-okt.-2014
  * Author: Sam Verschueren		<sam.verschueren@gmail.com>
