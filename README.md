@@ -7,9 +7,10 @@ To use the framework in your own project, just copy the src/oauth folder to your
 This framework uses strategies that are little modules that knows how to authenticate at a specific service like Google.
 
 The strategies implemented are:
+* Facebook
 * Google
-* GitHub
 * LinkedIn
+* GitHub
 
 ## Use a strategy
 

@@ -44,6 +44,7 @@ config_pri_source_group1 {
         $$quote($$BASEDIR/src/controllers/LoginController.cpp) \
         $$quote($$BASEDIR/src/main.cpp) \
         $$quote($$BASEDIR/src/oauth/OAuth.cpp) \
+        $$quote($$BASEDIR/src/oauth/strategy/FacebookStrategy.cpp) \
         $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.cpp) \
         $$quote($$BASEDIR/src/oauth/strategy/GoogleStrategy.cpp) \
         $$quote($$BASEDIR/src/oauth/strategy/LinkedInStrategy.cpp) \
@@ -53,6 +54,7 @@ config_pri_source_group1 {
         $$quote($$BASEDIR/src/applicationui.hpp) \
         $$quote($$BASEDIR/src/controllers/LoginController.hpp) \
         $$quote($$BASEDIR/src/oauth/OAuth.hpp) \
+        $$quote($$BASEDIR/src/oauth/strategy/FacebookStrategy.hpp) \
         $$quote($$BASEDIR/src/oauth/strategy/GitHubStrategy.hpp) \
         $$quote($$BASEDIR/src/oauth/strategy/GoogleStrategy.hpp) \
         $$quote($$BASEDIR/src/oauth/strategy/LinkedInStrategy.hpp) \

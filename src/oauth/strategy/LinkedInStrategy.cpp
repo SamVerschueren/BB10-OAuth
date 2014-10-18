@@ -21,8 +21,11 @@ namespace oauth {
             url.addQueryItem("response_type", "code");
             url.addQueryItem("client_id", OAuthStrategy::getClientKey());
             url.addQueryItem("redirect_uri", OAuthStrategy::getRedirectUrl().toString());
-            url.addQueryItem("scope", OAuthStrategy::getScope());
             url.addQueryItem("state", OAuthStrategy::getState());
+
+            if(!OAuthStrategy::getScope().isEmpty()) {
+                url.addQueryItem("scope", OAuthStrategy::getScope());
+            }
 
             return url;
         }

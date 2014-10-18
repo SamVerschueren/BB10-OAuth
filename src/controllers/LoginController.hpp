@@ -11,15 +11,10 @@
 #include <QObject>
 #include <bb/cascades/WebView>
 
-#include "OAuth.hpp"
-#include "OAuthStrategy.hpp"
-#include "GitHubStrategy.hpp"
-#include "GoogleStrategy.hpp"
-#include "LinkedInStrategy.hpp"
+#include "oauth/OAuth.hpp"
 
 using namespace bb::cascades;
 using namespace oauth;
-using namespace oauth::strategy;
 
 class LoginController : public QObject
 {
